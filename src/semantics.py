@@ -17,8 +17,13 @@ def get_hyponyms(synsets):
 
 def get_hypernyms(synsets):
     synset = synsets[0]
+
+    hypernyms = []
     
-    return synset.hypernyms()[0].lemma_names('por')
+    for hypernym in synset.hypernyms():
+        hypernyms.extend(hypernym.lemma_names('por'))
+    
+    return hypernyms
 
 def get_synonyms(synsets):
     synset = synsets[0]
